@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Node-Neo4j Template
 
 This is a template [Node.js][] + [Neo4j][] app, using the
@@ -87,3 +88,7 @@ Edit `scripts.start` in [package.json](./package.json) if you need to change tha
 
 [coffeescript]: http://www.coffeescript.org/
 [streamline]: https://github.com/Sage/streamlinejs
+=======
+familytree
+==========
+>>>>>>> 4abf74dfc4bfc4b8a712a95d7add5f6a3bb4914e
