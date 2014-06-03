@@ -1,24 +1,10 @@
-<<<<<<< HEAD
-# Node-Neo4j Template
-
-This is a template [Node.js][] + [Neo4j][] app, using the
-**[node-neo4j][]** library (available on npm as `neo4j`).
-
-A demo is running on Heroku at **<https://node-neo4j-template.herokuapp.com/>**.
-
-The app is a simple social network manager: it lets you add, remove, follow,
-and unfollow users.
-It's basic, and the UI is crappy, but hey, it's a template app. =)
-
-So try it out, browse the code, and fork this project to get a head start on
-coding your own app. Enjoy!
-
+Thanks to https://github.com/aseemk/node-neo4j-template for a great template
 
 ## Installation
 
 ```
-git clone git@github.com:aseemk/node-neo4j-template.git
-cd node-neo4j-template
+git clone git@github.com:alexfrieden/familytree.git
+cd familytree
 npm install
 ```
 
@@ -38,40 +24,7 @@ npm start
 The app will now be accessible at
 [http://localhost:3000/](http://localhost:3000/).
 
-To run the tests:
 
-```
-npm test
-```
-
-
-## Deploying
-
-This app is running on Heroku, using the free test version of the
-[GrapheneDB add-on](https://addons.heroku.com/graphenedb):
-
-<https://node-neo4j-template.herokuapp.com/>
-
-If you want to run your own instance similarly, it's easy:
-
-```
-heroku create [your-app-name]
-heroku addons:add graphenedb
-git push heroku master
-```
-
-There's already a [Procfile](./Procfile) here, and the code already checks for the
-necessary `PORT` and `GRAPHENEDB_URL` environment variables,
-so your deploy should go off without a hitch!
-
-If you're deploying in another way, the code also checks for a `NEO4J_URL`
-environment variable to support pointing to any other Neo4j database.
-The value of this variable should be set to the database root URL, and it can
-contain HTTP Basic Auth info. E.g. `https://user:pass@1.2.3.4:5678`.
-
-One thing to note is that `npm start` is currently geared towards development:
-it runs [node-dev](https://github.com/fgnass/node-dev) instead of node.
-Edit `scripts.start` in [package.json](./package.json) if you need to change that.
 
 
 ## Miscellany
