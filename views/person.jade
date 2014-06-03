@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    h1 #{person.name}
+
+    p
+        a(href='/persons') Back to everyone
+
+    if related.length
+        p #{person.name} is related to #{related.length} persons:
+        // TODO should say 'person' if only one! ;)
+        ul.persons
+            for other in related
+                li.person
+                    form(action='/persons/#{person.id}/unrelate', method='POST')
+                        a(href='/persons/#{other.id}') #{other.name} #{relations[other.name]}
+                        input(type='hidden', name='person[id]', value='#{other.id}')
+                        input(type='submit', class='unfollow', value='x')
+    else
+        p #{person.name} isn't following anyone currently.
+
+    if others.length
+        form(action='/persons/#{person.id}/relate', method='POST')
+            p Add someone for #{person.name} to follow:
+            label
+                select(name='person[id]', required)
+                    option(value='')
+                    for person in others
+                        option(value='#{person.id}') #{person.name}
+                select(name='relation', required)
+                    option(value='') select one
+                    option(value='SPOUSE') SPOUSE
+                    option(value='SIBLING') SIBLING
+                    option(value='PARENT') PARENT
+            input(type='submit', value='Add')
+    else
+        p There's no one else left for #{person.name} to follow!
+
+    form(action='/persons/#{person.id}', method='POST')
+        p Edit this person:
+        input(type='text', name='name', placeholder='#{person.name}', required)
+        input(type='submit', value='Update')
+
+    form(action='/persons/#{person.id}', method='POST', onsubmit='return confirm("Are you sure?");')
+        p And if you're feeling destructive…
+        input(type='hidden', name='_method', value='DELETE')
+        input(type='submit', value='Delete User')
