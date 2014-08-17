@@ -1,12 +1,16 @@
 // person.js
 // Person model logic.
 
-var neo4j = require('neo4j');
-var db = new neo4j.GraphDatabase(
-    process.env['NEO4J_URL'] ||
-    process.env['GRAPHENEDB_URL'] ||
-    'http://localhost:7474'
-);
+//var neo4j = require('neo4j');
+//var db = new neo4j.GraphDatabase(
+//    process.env['NEO4J_URL'] ||
+//    process.env['GRAPHENEDB_URL'] ||
+//    'http://localhost:7474'
+//);
+// https://github.com/thingdom/node-neo4j
+          
+          var neo4j = require("neo4j");
+          var db = new neo4j.GraphDatabase("http://familyTree:9OzLwSwCVsr0NrOvQ2Ay@familytree.sb02.stations.graphenedb.com:24789");
 
 // private constructor:
 
