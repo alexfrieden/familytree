@@ -2,7 +2,7 @@ extends layout
 
 block content
     h1 #{person.name}
-
+    img(src= '#{person.image}', style="width:200px; height:200px;")
     p
         a(href='/persons') Back to everyone
 
@@ -38,7 +38,11 @@ block content
 
     form(action='/persons/#{person.id}', method='POST')
         p Edit this person:
-        input(type='text', name='name', placeholder='#{person.name}', required)
+        
+        input(type='text', name='name', placeholder='#{person.name}', required) 
+        br 
+        input(type='text', name='image', placeholder='#{person.image}', size=100, required)
+        br
         input(type='submit', value='Update')
 
     form(action='/persons/#{person.id}', method='POST', onsubmit='return confirm("Are you sure?");')

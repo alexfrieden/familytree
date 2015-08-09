@@ -18,7 +18,7 @@ or if you're on a Mac, `brew install neo4j`.
 Start your local Neo4j instance (e.g. `neo4j start`), then:
 
 ```
-npm start
+node app.js
 ```
 
 The app will now be accessible at

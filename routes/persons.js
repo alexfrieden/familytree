@@ -54,6 +54,7 @@ exports.edit = function (req, res, next) {
     Person.get(req.params.id, function (err, person) {
         if (err) return next(err);
         person.name = req.body['name'];
+        person.image = req.body['image'];
         person.save(function (err) {
             if (err) return next(err);
             res.redirect('/persons/' + person.id);

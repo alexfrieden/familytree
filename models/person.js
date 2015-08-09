@@ -10,7 +10,8 @@
 // https://github.com/thingdom/node-neo4j
           
           var neo4j = require("neo4j");
-          var db = new neo4j.GraphDatabase("http://familyTree:9OzLwSwCVsr0NrOvQ2Ay@familytree.sb02.stations.graphenedb.com:24789");
+          // var db = new neo4j.GraphDatabase("http://familyTree:9OzLwSwCVsr0NrOvQ2Ay@familytree.sb02.stations.graphenedb.com:24789");
+          var db = new neo4j.GraphDatabase("http://localhost:7474");
 
 // private constructor:
 
@@ -34,6 +35,15 @@ Object.defineProperty(Person.prototype, 'name', {
         this._node.data['name'] = name;
     }
 });
+Object.defineProperty(Person.prototype, 'image', {
+    get: function () {
+        return this._node.data['image'];
+    },
+    set: function (image) {
+        this._node.data['image'] = image;
+    }
+});
+
 
 // public instance methods:
 
@@ -153,6 +163,7 @@ Person.prototype.getRelatedAndOthers = function (callback) {
 
 Person.get = function (id, callback) {
     db.getNodeById(id, function (err, node) {
+        console.log("get node by id of " +id);
         if (err) return callback(err);
         callback(null, new Person(node));
     });
@@ -179,6 +190,8 @@ Person.create = function (data, callback) {
     // validate and extend it, etc., if we choose to do that in the future:
     var node = db.createNode(data);
     var person = new Person(node);
+
+
 
     // but we do the actual persisting with a Cypher query, so we can also
     // apply a label at the same time. (the save() method doesn't support

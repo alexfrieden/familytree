@@ -1,7 +1,7 @@
-{ "name": "NodeNeo4jTemplate"
+{ "name": "family tree"
 , "description": "A sample Node.js + Neo4j app."
 , "version": "0.0.1"
-, "author": "Aseem Kishore <aseem.kishore@gmail.com>"
+, "author": "Alexander Frieden <Alex@Frieden.org>"
 , "private": true
 , "dependencies":
   { "express": "~3.2.0"
